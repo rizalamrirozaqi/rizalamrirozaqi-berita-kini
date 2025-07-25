@@ -20,11 +20,11 @@ export default function Banner() {
     }, []);
 
     return (
-        <div className="container relative mx-auto px-4">
+        <div className="container relative mx-auto px-4 py-10">
             <div className="overflow-hidden rounded-xl ">
                 <Image width={1920} height={1080} src={banners[currentIndex]} alt={`Banner ${currentIndex + 1}`} className="w-full h-auto aspect-21/6 object-cover transition-all duration-700" priority />
             </div>
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
                 {banners.map((_, idx) => (
                 <span key={idx} className={`w-2 h-2 rounded-full ${idx === currentIndex ? "bg-blue-500/70" : "bg-gray-500"} transition`} />
                 ))}

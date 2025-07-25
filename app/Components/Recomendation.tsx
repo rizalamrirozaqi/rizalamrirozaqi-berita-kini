@@ -51,7 +51,7 @@ export default function Recomendation({ news }: Props) {
   };
 
   return (
-    <div className="p-4 bg-white">
+    <div className="px-4 py-20 bg-white">
       <div className="flex items-center space-x-4 mb-6">
         <div className="w-1 h-7 bg-blue-500 rounded-full"></div>
         <h1 className='text-lg font-semibold'>Rekomendasi Untuk Anda</h1>

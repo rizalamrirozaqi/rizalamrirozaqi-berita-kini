@@ -21,7 +21,7 @@ export default function PopularNews({ news, className = "", direction = "col" }:
   const isRow = direction === 'row';
 
   return (
-    <div className={`carousel-berita w-full bg-white container ${className}`}>
+    <div className={`carousel-berita w-full bg-white container px-4 py-10 ${className}`}>
       <div className="flex items-center space-x-4 mb-6">
         <div className="w-1 h-7 bg-blue-500 rounded-full"></div>
         <h1 className="text-lg font-semibold">Berita Terpopuler</h1>
