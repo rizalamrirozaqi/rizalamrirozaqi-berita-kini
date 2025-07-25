@@ -16,7 +16,7 @@ export default function Navbar() {
     }, []);
 
     return (
-    <nav className={`w-full h-auto sticky top-0 z-50 transition-colors duration-300 border-b-2 flex justify-center ${scrolled ? "bg-blue-500 border-blue-200" : "bg-white border-gray-200"}`}>
+    <nav className={`w-full h-auto sticky top-0 z-50 transition-colors duration-300 border-b-2 flex justify-center z-90 ${scrolled ? "bg-blue-500 border-blue-200" : "bg-white border-gray-200"}`}>
         <div className="container mx-auto px-4 py-2 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex flex-col items-center md:flex-row md:items-center gap-2 md:gap-4">
                 <Image src="/img/logo.png" alt="Logo" width={40} height={40} className={`transition-transform duration-300 ${scrolled? "transform scale-90 brightness-0 invert" : "transform scale-100"}`}/>

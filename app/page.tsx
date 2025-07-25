@@ -71,7 +71,7 @@ export default async function Home() {
   return (
     <main className="container w-full h-auto mx-auto  text-xs py-20">
       <NewsCarousel news={allNews.slice(0, 5)} />
-      <PopularNews news={allNews.slice(5, 8)} />
+      <PopularNews news={allNews.slice(5, 8)} direction="row"/>
       <Recomendation news={allNews.slice(8, 80)} />
       <Banner />
     </main>

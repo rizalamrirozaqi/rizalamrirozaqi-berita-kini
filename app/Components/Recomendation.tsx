@@ -52,7 +52,10 @@ export default function Recomendation({ news }: Props) {
 
   return (
     <div className="p-4 bg-white">
-      <h2 className="text-lg font-bold mb-4 border-l-2 border-blue-400 px-4 ">Rekomendasi Untuk Anda</h2>
+      <div className="flex items-center space-x-4 mb-6">
+        <div className="w-1 h-7 bg-blue-500 rounded-full"></div>
+        <h1 className='text-lg font-semibold'>Rekomendasi Untuk Anda</h1>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {paginatedNews.map((item, idx) => (
           <Link href={{
@@ -65,17 +68,17 @@ export default function Recomendation({ news }: Props) {
                 category: item.category ?? '',
               },
             }}
-            key={idx} className="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition-shadow group hover:scale-95 transition-alll duration-300">
+            key={idx} className="p-4 rounded-lg hover:shadow-lg transition-shadow group hover:scale-95 transition-alll duration-300">
             <Image width={1920} height={1080} src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover rounded group-hover:transform group-hover:scale-95 transition-alll duration-300" />
             <h3 className="text-sm font-semibold mt-2 line-clamp-2">{item.title}</h3>
             <div className="flex items-center gap-1 mt-1">
+              <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-xs font-semibold">
+                {item.category ? item.category.charAt(0).toUpperCase() + item.category.slice(1).toLowerCase() : ''}
+              </a>
+              <Dot className="text-gray-400 w-4 h-4" />
               <p className="text-xs text-gray-500">
                 {new Date(item.pubDate).toLocaleDateString()}
               </p>
-              <Dot className="text-gray-400 w-4 h-4" />
-              <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-xs">
-                {item.category ? item.category.charAt(0).toUpperCase() + item.category.slice(1).toLowerCase() : ''}
-              </a>
             </div>
           </Link>
         ))}
