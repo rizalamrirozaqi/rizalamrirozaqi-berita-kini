@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -37,17 +37,22 @@ export default function DetailBerita() {
         const data = await res.json();
         const posts: News[] = data?.data?.posts || [];
 
-        setPopularNews(posts.slice(0, 3));
-        setRelatedNews(posts.slice(3, 6));
+        const postsWithCategory = posts.map((post) => ({
+          ...post,
+          category: post.category, 
+        }));
+
+        setPopularNews(postsWithCategory.slice(0, 3));
+        setRelatedNews(postsWithCategory.slice(3, 6));
       } catch (err) {
         console.error('Gagal fetch berita:', err);
       }
     };
 
-    fetchNews();
-  }, []);
-  console.log("category:", searchParams.get("category"));
+  fetchNews();
+}, []);
 
+  console.log("kategori:", category);
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -118,7 +123,6 @@ export default function DetailBerita() {
               </div>
             </div>
           </section>
-
           <section className="mb-8">
             <div className="w-full grid grid-cols-2">
               <div className="flex items-center space-x-4 mb-6 h-full w-full">
@@ -136,9 +140,9 @@ export default function DetailBerita() {
                   <Image src={item.thumbnail} alt={item.title} width={400} height={200} className="rounded mb-2 object-cover w-full h-32 group-hover:tranform group-hover:scale-95 duration-300 transition-all" />
                   <h3 className="font-semibold text-sm">{item.title}</h3>
                   <div className="flex items-center text-xs text-gray-500 mt-1">
-                    {item.category && (
+                    {category && (
                       <span className="text-blue-500 font-medium">
-                        {item.category.charAt(0).toUpperCase() + item.category.slice(1).toLowerCase()}
+                        {category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()}
                       </span>
                     )}
                     <Dot className="w-4 h-4 text-gray-400" />
@@ -148,6 +152,7 @@ export default function DetailBerita() {
               ))}
             </div>
           </section>
+          
         </div>
 
         <div className="container">
@@ -157,3 +162,4 @@ export default function DetailBerita() {
     </main>
   );
 }
+
