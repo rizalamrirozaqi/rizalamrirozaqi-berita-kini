@@ -48,7 +48,7 @@ export default function PopularNews({ news, className = "", direction = "col" }:
                 },
               }} className={`w-full  ${isRow ? 'flex flex-col items-start' : 'flex flex-row items-center'}`}>
 
-              <div className="flex p-4 flex-row gap-2 w-full group hover:scale-95 transition-all duration-300 hover:shadow-lg rounded-lg relative">
+              <div className="flex flex-row gap-2 w-full group hover:scale-95 transition-all duration-300 hover:shadow-lg rounded-lg relative">
                 <span className="absolute rounded-full w-8 h-8 bg-gray-600 flex items-center justify-center text-white text-sm font-bold -top-2 -left-2 group-hover:scale-95 transition-all duration-300 z-10">
                   {index + 1}
                 </span>
